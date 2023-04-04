@@ -80,7 +80,7 @@ int checksum_card(long long card)
     long long sum_a = 0, sum_b = 0, sum_temp_b = 0;
     for (int i = 0; i < MAX_LENGTH; i++)
     {
-        sum_a = sum_a + fmod((card/pow(CARD_MOD,i*2)), CARD_MOD);
+        sum_a += fmod((card/pow(CARD_MOD,i*2)), CARD_MOD);
 
         // Make modulo of first sum if needed.
         sum_temp_b = (int)(fmod((card/pow(CARD_MOD,(i*2)+1)), CARD_MOD));
@@ -89,7 +89,7 @@ int checksum_card(long long card)
         {
             sum_temp_b = fmod(sum_temp_b,CARD_MOD) + sum_temp_b/CARD_MOD;
         }
-        sum_b = sum_b + sum_temp_b;
+        sum_b += sum_temp_b;
     }
     return mod = (sum_a + sum_b) % CARD_MOD;
 }

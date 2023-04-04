@@ -2,6 +2,8 @@
 #include <stdio.h>
 
 #define MIN_LLAMAS 9
+#define LIFE 3
+#define DEATH 4
 
 int get_start(void);
 int get_ending(int start_size);
@@ -16,7 +18,7 @@ int main(void)
     // Calculate and print data
     while(start_size < end_size)
     {
-        start_size = start_size + (start_size/3) - (start_size/4);
+        start_size = start_size + (start_size/LIFE) - (start_size/DEATH);
         years++;
     }
     
