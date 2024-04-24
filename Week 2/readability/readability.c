@@ -13,9 +13,9 @@
 #define MAX_TEXT 2000
 #define PER_CENT 100
 
-int count_letters(char* text);
-int count_sentences(char* text);
-int count_words(char* text);
+int count_letters(char *text);
+int count_sentences(char *text);
+int count_words(char *text);
 void print_results(int letters, int words, int sentences);
 
 int main(void)
@@ -36,7 +36,7 @@ int main(void)
     print_results(letters, words, sentences);
 }
 
-int count_letters(char* text)
+int count_letters(char *text)
 {
     int letter = 0;
     for (int i = 0, n = strlen(text); i < n; i++)
@@ -49,8 +49,7 @@ int count_letters(char* text)
     return letter;
 }
 
-
-int count_sentences(char* text)
+int count_sentences(char *text)
 {
     int sentence = 0;
     for (int i = 0, n = strlen(text); i < n; i++)
@@ -63,7 +62,7 @@ int count_sentences(char* text)
     return sentence;
 }
 
-int count_words(char* text)
+int count_words(char *text)
 {
     bool next_s = true;
     int word = 0;
@@ -92,8 +91,8 @@ int count_words(char* text)
 void print_results(int letters, int words, int sentences)
 {
     // Calculate average per 100 words
-    float L = PER_CENT * (letters/(float) words);
-    float S = PER_CENT * (sentences/(float) words);
+    float L = PER_CENT * (letters / (float)words);
+    float S = PER_CENT * (sentences / (float)words);
 
     // Evaluate Coleman-Liau index
     float index = (CONST_LTR * L) - (CONST_SNT * S) - CONST_IND;
@@ -108,7 +107,6 @@ void print_results(int letters, int words, int sentences)
     }
     else
     {
-        printf("Grade %i", (int) index);
-    }    
+        printf("Grade %i", (int)index);
+    }
 }
-

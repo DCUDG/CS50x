@@ -10,7 +10,7 @@
 // Points assigned to each letter of the alphabet
 int POINTS[] = {1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10};
 
-int compute_score(char* word);
+int compute_score(char *word);
 void flush_buffer(void);
 
 int main(void)
@@ -46,25 +46,25 @@ int main(void)
     }
 }
 
-int compute_score(char* word)
+int compute_score(char *word)
 {
     int score = 0;
     for (int i = 0, n = strlen(word); i < n; i++)
     {
-        word[i] = (int) toupper(word[i]); 
+        word[i] = (int)toupper(word[i]);
         if (UPPER_A <= word[i] && word[i] <= UPPER_Z)
         {
             score += POINTS[(word[i] - UPPER_A)];
         }
-    }    
+    }
     return score;
 }
 
 void flush_buffer(void)
 {
     int c;
-    while ((c = getchar()) != '\n' && c != EOF) 
-    { 
+    while ((c = getchar()) != '\n' && c != EOF)
+    {
         // Wait for buffer to clear
     }
 }

@@ -17,7 +17,7 @@ int main(void)
 }
 
 int get_size(void)
-{   
+{
     float size;
     int size_int;
     do
@@ -26,11 +26,10 @@ int get_size(void)
         scanf("%f", &size);
 
         // Custom function to clear buffer without CS50's library
-        flush_buffer(); 
+        flush_buffer();
 
         size_int = size;
-    }
-    while (size < MIN_SIZE || size > MAX_SIZE || size!=size_int);
+    } while (size < MIN_SIZE || size > MAX_SIZE || size != size_int);
     return size_int;
 }
 
@@ -38,7 +37,7 @@ void print_size(int size)
 {
     for (int i = 0; i < size; i++)
     {
-        print_spaces(size-i);
+        print_spaces(size - i);
         print_hashes(i);
         printf("  ");
         print_hashes(i);
@@ -49,8 +48,8 @@ void print_size(int size)
 void flush_buffer(void)
 {
     int c;
-    while ((c = getchar()) != '\n' && c != EOF) 
-    { 
+    while ((c = getchar()) != '\n' && c != EOF)
+    {
         // Wait for buffer to clear
     }
 }
@@ -61,7 +60,6 @@ void print_spaces(int i)
     {
         printf(" ");
     }
-    
 }
 
 void print_hashes(int i)

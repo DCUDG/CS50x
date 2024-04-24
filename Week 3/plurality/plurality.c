@@ -11,10 +11,9 @@
 // Candidates have name and vote count
 typedef struct
 {
-    char* name;
+    char *name;
     int votes;
-}
-candidate;
+} candidate;
 
 // Array of candidates
 candidate candidates[MAX];
@@ -23,11 +22,11 @@ candidate candidates[MAX];
 int candidate_count;
 
 // Function prototypes
-bool vote(char* name);
+bool vote(char *name);
 void print_winner(void);
 void flush_buffer(void);
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
     int voter_count;
 
@@ -57,12 +56,12 @@ int main(int argc, char* argv[])
         scanf("%i", &voter_count);
         flush_buffer();
 
-    } while (voter_count < MIN_VOTE);    
+    } while (voter_count < MIN_VOTE);
 
     // Loop over all voters
     for (int i = 0; i < voter_count; i++)
     {
-        char* name;
+        char *name;
 
         printf("Vote: ");
         scanf("%s", name);
@@ -80,11 +79,11 @@ int main(int argc, char* argv[])
 }
 
 // Update vote totals given a new vote
-bool vote(char* name)
+bool vote(char *name)
 {
     for (int i = 0; i < candidate_count; i++)
     {
-        if (strcmp(name,candidates[i].name) == 0)
+        if (strcmp(name, candidates[i].name) == 0)
         {
             candidates[i].votes++;
             return true;
@@ -104,7 +103,7 @@ void print_winner(void)
         if (highest_vote < candidates[i].votes)
         {
             highest_vote = candidates[i].votes;
-        }    
+        }
     }
 
     // Search for each candidate and compare highest value for it to print it
@@ -121,8 +120,8 @@ void print_winner(void)
 void flush_buffer(void)
 {
     int c;
-    while ((c = getchar()) != '\n' && c != EOF) 
-    { 
+    while ((c = getchar()) != '\n' && c != EOF)
+    {
         // Wait for buffer to clear
     }
 }

@@ -16,12 +16,12 @@ int main(void)
     int end_size = get_ending(start_size);
 
     // Calculate and print data
-    while(start_size < end_size)
+    while (start_size < end_size)
     {
-        start_size = start_size + (start_size/LIFE) - (start_size/DEATH);
+        start_size = start_size + (start_size / LIFE) - (start_size / DEATH);
         years++;
     }
-    
+
     printf("Years: %d", years);
 }
 
@@ -34,7 +34,7 @@ int get_start(void)
         scanf("%d", &start_size);
 
         // Custom function to clear buffer without CS50's library
-        flush_buffer(); 
+        flush_buffer();
 
     } while (start_size < MIN_LLAMAS);
     return start_size;
@@ -49,7 +49,7 @@ int get_ending(int start_size)
         scanf("%d", &end_size);
 
         // Custom function to clear buffer without CS50's library
-        flush_buffer(); 
+        flush_buffer();
 
     } while (end_size < start_size);
     return end_size;
@@ -58,8 +58,8 @@ int get_ending(int start_size)
 void flush_buffer(void)
 {
     int c;
-    while ((c = getchar()) != '\n' && c != EOF) 
-    { 
+    while ((c = getchar()) != '\n' && c != EOF)
+    {
         // Wait for buffer to clear
     }
 }
