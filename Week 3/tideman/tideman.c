@@ -25,7 +25,7 @@ typedef struct
 
 // Array of candidates
 char *candidates[MAX];
-pair pairs[MAX * (MAX - 1) / 2], tmp_pairs;
+pair pairs[MAX * (MAX - 1) / 2], tmpPairs;
 
 int pair_count;
 int candidate_count;
@@ -219,9 +219,9 @@ void sort_pairs(void)
             // If the [i+1]th is bigger than [i]
             if (sum_b > sum_a)
             {
-                tmp_pairs = pairs[i + 1];
+                tmpPairs = pairs[i + 1];
                 pairs[i + 1] = pairs[i];
-                pairs[i] = tmp_pairs;
+                pairs[i] = tmpPairs;
             }
         }
     } while (!sorted);
